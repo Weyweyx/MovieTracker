@@ -30,9 +30,11 @@ Movie.init(
           User_id: {
             type: DataTypes.INTEGER,
             references: {
-              model: '',
+              model: 'User',
               key: 'id',
             },
         },
     }
-)
+);
+
+module.exports = Movie;
