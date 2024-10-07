@@ -1,16 +1,19 @@
 const router = require('express').Router();
 const { Movie, User } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
     const movieData = await Movie.findAll({
       include: [
-        {},
+        {
+          model: User,
+          attributes: ['name'],
+        },
       ],
     });
 
-    const movies = movieData.map((project) => project.get({ plain: true }));
+    const movies = movieData.map((movie) => movie.get({ plain: true }));
 
     res.render('homepage', { 
       movies, 
@@ -25,7 +28,10 @@ router.get('/movie/:id', async (req, res) => {
   try {
     const movieData = await Project.findByPk(req.params.id, {
       include: [
-        {},
+        {
+          model: User,
+          attributes: ['name'],
+        },
       ],
     });
 
@@ -40,10 +46,8 @@ router.get('/movie/:id', async (req, res) => {
   }
 });
 
-// Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Movie }],
@@ -61,7 +65,6 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
