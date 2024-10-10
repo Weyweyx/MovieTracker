@@ -1,7 +1,7 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Movie extends Model {}
+class Movie extends Model { }
 
 Movie.init(
   {
@@ -18,7 +18,7 @@ Movie.init(
     User_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
+        model: "user",
         key: "id",
       },
     },
@@ -35,7 +35,7 @@ Movie.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Movie",
+    modelName: 'movie',
   }
 );
 
