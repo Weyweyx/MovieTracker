@@ -15,18 +15,6 @@ Movie.init(
             type: DataTypes.STRING,
             allowNull: false,
         },
-          release_date: {
-            type: DataTypes.DATE,
-            allowNull: false,
-        },
-          filename: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
-          description: {
-            type: DataTypes.STRING,
-            allowNull: false,
-        },
           User_id: {
             type: DataTypes.INTEGER,
             references: {
