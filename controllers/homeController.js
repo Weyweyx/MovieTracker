@@ -4,21 +4,15 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const movieData = await Movie.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['title'],
-        },
-      ],
-    });
+    const movieData = await Movie.findAll();
 
     const movies = movieData.map((movie) => movie.get({ plain: true }));
 
-    res.render('homepage', { 
-      movies, 
-      logged_in: req.session.logged_in 
-    });
+    // res.render('homepage', { 
+    //   movies, 
+    //   logged_in: req.session.logged_in 
+    // });
+    res.json(movies)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -26,21 +20,15 @@ router.get('/', async (req, res) => {
 
 router.get('/movie/:id', async (req, res) => {
   try {
-    const movieData = await Project.findByPk(req.params.id, {
-      include: [
-        {
-          model: User,
-          attributes: ['title'],
-        },
-      ],
-    });
+    const movieData = await Project.findByPk(req.params.id);
 
     const movies = movieData.get({ plain: true });
 
-    res.render('movie', {
-      ...movies,
-      logged_in: req.session.logged_in
-    });
+    // res.render('movie', {
+    //   ...movies,
+    //   logged_in: req.session.logged_in
+    // });
+    res.json(movies)
   } catch (err) {
     res.status(500).json(err);
   }
