@@ -1,19 +1,15 @@
 const { Model, DataTypes } = require("sequelize");
 const sequelize = require("../config/connection");
 
-class Movie extends Model {}
+class Review extends Model {}
 
-Movie.init(
+Review.init(
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
     },
     User_id: {
       type: DataTypes.INTEGER,
@@ -22,10 +18,10 @@ Movie.init(
         key: "id",
       },
     },
-    Watchlist_id: {  // (do i include both?? maybe dumb question)
+    Movie_id: {   // (do i include both??? maybe dumb question)
       type: DataTypes.INTEGER,
       references: {
-        model: "Watchlist",
+        model: "Movie",
         key: "id",
       },
     },
@@ -35,8 +31,8 @@ Movie.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Movie",
+    modelName: "Review",
   }
 );
 
-module.exports = Movie;
+module.exports = Review;
