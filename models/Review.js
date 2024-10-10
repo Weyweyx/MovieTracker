@@ -14,11 +14,11 @@ Review.init(
     User_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "User",
+        model: "user",
         key: "id",
       },
     },
-    Movie_id: {   // (do i include both??? maybe dumb question)
+    Movie_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "Movie",
