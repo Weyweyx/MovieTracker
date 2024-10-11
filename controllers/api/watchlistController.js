@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { Watchlist } = require('../../models');
 
-router.post('/', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
       const watchlistData = await Watchlist.create(req.body);
       const watchlists = watchlistData.map((user) => user.get({ plain: true }));
