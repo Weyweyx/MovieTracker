@@ -31,15 +31,10 @@ function trailerLink(videos) {
   return trailer;
 }
 
-const movie = "Warcraft"
 
- 
-const query = `${movie} trailer`;
-console.log(query)
+let movie = Movie.title;
 
-// let movie = Movie.title;
-
-// let query = `${movie} trailer`;
+let query = `${movie} trailer`;
 
 fetchYouTubeVideos(query).then(function (videos) {
   const trailer = trailerLink(videos);
