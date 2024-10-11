@@ -15,13 +15,13 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    watchlist_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "watchlist",
-        key: "id",
-      },
-    },
+    // watchlist_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //     model: "watchlist",
+    //     key: "id",
+    //   },
+    // },
   },
   {
     sequelize,

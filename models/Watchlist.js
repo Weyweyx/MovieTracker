@@ -16,6 +16,15 @@ Watchlist.init(
       references: {
         model: "user",
         key: "id",
+        unique: true,
+      },
+    },
+    movie_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: "movie",
+        key: "id",
+        unique: true,
       },
     },
   },
@@ -24,7 +33,7 @@ Watchlist.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "movie",
+    modelName: "watchlist",
   }
 );
 

@@ -3,10 +3,10 @@ const newFormHandler = async (event) => {
 
     const title = document.querySelector('#movie-title').value.trim();
 
-    if (title && needed_funding && description) {
-        const response = await fetch(`/api/projects`, {
+    if (title) {
+        const response = await fetch(`/api/movies`, {
             method: 'POST',
-            body: JSON.stringify({ title: title }),
+            body: JSON.stringify({ title }),
             headers: {
                 'Content-Type': 'application/json',
             },
@@ -24,14 +24,14 @@ const delButtonHandler = async (event) => {
     if (event.target.hasAttribute('data-id')) {
         const id = event.target.getAttribute('data-id');
 
-        const response = await fetch(`/api/projects/${id}`, {
+        const response = await fetch(`/api/movies/${id}`, {
             method: 'DELETE',
         });
 
         if (response.ok) {
             document.location.replace('/profile');
         } else {
-            alert('Failed to delete project');
+            alert('Failed to delete movie');
         }
     }
 };
