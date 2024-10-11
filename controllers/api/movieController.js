@@ -1,6 +1,12 @@
 const router = require('express').Router();
 const { Movie } = require('../../models');
-// const withAuth = require('../../utils/auth');
+const withAuth = require('../../utils/auth');
+
+router.get('/', async (req, res) => {
+  const movieData = await Movie.findAll()
+  const movies = movieData.map((movie) => movie.get({ plain: true }));
+  res.json(movies)
+})
 
 router.post('/', withAuth, async (req, res) => {
   try {
@@ -8,7 +14,7 @@ router.post('/', withAuth, async (req, res) => {
       ...req.body,
       user_id: req.session.user_id,
     });
-
+    // if move title exists, do not create a new movie
     res.status(200).json(newMovie);
   } catch (err) {
     res.status(400).json(err);
@@ -25,7 +31,7 @@ router.delete('/:id', withAuth, async (req, res) => {
     });
 
     if (!movieData) {
-      res.status(404).json({ message: 'No project found with this id!' });
+      res.status(404).json({ message: 'No movie found with this id!' });
       return;
     }
 

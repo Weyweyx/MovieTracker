@@ -1,21 +1,18 @@
 const router = require('express').Router();
 const { Movie, User } = require('../models');
-// const withAuth = require('../utils/auth');
+const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const movieData = await Movie.findAll({
-      include: [
-        {},
-      ],
-    });
+    const movieData = await Movie.findAll();
 
-    const movies = movieData.map((project) => project.get({ plain: true }));
+    const movies = movieData.map((movie) => movie.get({ plain: true }));
 
-    res.render('homepage', { 
-      movies, 
-      logged_in: req.session.logged_in 
-    });
+    // res.render('homepage', { 
+    //   movies, 
+    //   logged_in: req.session.logged_in 
+    // });
+    res.json(movies)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -23,27 +20,22 @@ router.get('/', async (req, res) => {
 
 router.get('/movie/:id', async (req, res) => {
   try {
-    const movieData = await Project.findByPk(req.params.id, {
-      include: [
-        {},
-      ],
-    });
+    const movieData = await Project.findByPk(req.params.id);
 
     const movies = movieData.get({ plain: true });
 
-    res.render('movie', {
-      ...movies,
-      logged_in: req.session.logged_in
-    });
+    // res.render('movie', {
+    //   ...movies,
+    //   logged_in: req.session.logged_in
+    // });
+    res.json(movies)
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-// Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
   try {
-    // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
       include: [{ model: Movie }],
@@ -61,7 +53,6 @@ router.get('/profile', withAuth, async (req, res) => {
 });
 
 router.get('/login', (req, res) => {
-  // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
     res.redirect('/profile');
     return;
