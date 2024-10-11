@@ -5,12 +5,12 @@ const Review = require('./Review');
 
 
 User.hasMany(Movie, {
-    foreignKey: 'User_id',
+    foreignKey: 'user_id',
     onDelete: 'CASCADE'
 });
 
 Movie.belongsTo(User, {
-    foreignKey: 'User_id'
+    foreignKey: 'user_id'
 });
 
 module.exports = { User, Watchlist, Movie, Review };

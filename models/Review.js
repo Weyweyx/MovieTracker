@@ -11,17 +11,17 @@ Review.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    User_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "user",
         key: "id",
       },
     },
-    Movie_id: {
+    movie_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Movie",
+        model: "movie",
         key: "id",
       },
     },
@@ -31,7 +31,7 @@ Review.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: "Review",
+    modelName: "review",
   }
 );
 

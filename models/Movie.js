@@ -15,10 +15,10 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    Watchlist_id: {
+    watchlist_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: "Watchlist",
+        model: "watchlist",
         key: "id",
       },
     },
