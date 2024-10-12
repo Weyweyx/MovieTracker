@@ -16,7 +16,7 @@ Watchlist.init(
       references: {
         model: "user",
         key: "id",
-        unique: true,
+        unique: false,
       },
     },
     movie_id: {
@@ -24,7 +24,7 @@ Watchlist.init(
       references: {
         model: "movie",
         key: "id",
-        unique: true,
+        unique: false,
       },
     },
   },

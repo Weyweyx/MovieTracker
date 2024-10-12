@@ -12,21 +12,30 @@ const Review = require('./Review');
 //     foreignKey: 'user_id'
 // });
 
-User.belongsToMany(Movie, {
-    through: {
-        model: Watchlist,
-        unique: true
-    },
-    as: 'movies_to_watch'
+User.hasMany(Movie, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
 })
 
-Movie.belongsToMany(User, {
-    through: {
-        model: Watchlist,
-        unique: true
-    },
-    as: 'movie_fans'
+Movie.belongsTo(User, {
+    foreignKey: 'user_id'
 })
+
+// User.belongsToMany(Movie, {
+//     through: {
+//         model: Watchlist,
+//         unique: false
+//     },
+//     as: 'movies_to_watch'
+// })
+
+// Movie.belongsToMany(User, {
+//     through: {
+//         model: Watchlist,
+//         unique: false
+//     },
+//     as: 'movie_fans'
+// })
 
 // User.hasMany(Review, {
 //     foreignKey: 'user_id'
