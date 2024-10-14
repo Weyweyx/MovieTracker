@@ -1,4 +1,5 @@
 const { Movie } = require("../models/Movie");
+const video = document.querySelector("video");
 
 function fetchYouTubeVideos(query) {
   const apiKey = "AIzaSyAZQxBxJRTVW5bNFyFSHAj-xF8GBWF3NQ4";
@@ -26,19 +27,18 @@ function fetchYouTubeVideos(query) {
     });
 }
 
-function trailerLink(videos) {
-  const trailer = `https://www.youtube.com/embed/${videos[0].id.videoId}?autoplay=1&mute=1`;
-  return trailer;
-}
+function setVideo(videos) {
+  const source = document.createElement("source");
+  source.setAttribute(src,"https://www.youtube.com/embed/${videos[0].id.videoId}?autoplay=1&mute=1")
+  source.setAttribute(type, "video/youtube")
 
+  video.append(source)
+}
 
 let movie = Movie.title;
 
 let query = `${movie} trailer`;
 
 fetchYouTubeVideos(query).then(function (videos) {
-  const trailer = trailerLink(videos);
-  console.log(trailer)
-  return trailer
-
-})
+    setVideo(videos);
+});

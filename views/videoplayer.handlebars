@@ -7,8 +7,13 @@
       poster="https://www.tutorialspoint.com/videos/sample.png"
       data-setup="{}"
     >
-      <source
+      {{!-- <source
         src="https://www.youtube.com/watch?v=2Rxoz13Bthc"
         type="video/youtube"
-      />
+      /> --}}
     </video>
+    <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+    <script>
+      var player = videojs("my-video");
+    </script>
