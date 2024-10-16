@@ -1,40 +1,45 @@
 <div>
-    <div>
-        <h2>Welcome, {{username}}!</h2>
-    </div>
+  <div>
+    <h2>Welcome, {{username}}!</h2>
+  </div>
 </div>
 
 <div>
-    <div>
-        <h3>Add a movie to watch:</h3>
+  <div>
+    <h3>Add a movie to watch:</h3>
 
-        <form class="form new-movie-form">
-            <div class="form-group">
-                <label for="movie-title">movie title:</label>
-                <input class="form-input" type="text" id="movie-title" name="movie-title" />
-            </div>
-            <div class="form-group">
-                <button type="submit">Add</button>
-            </div>
-        </form>
-    </div>
+    <form class="form new-movie-form">
+      <div class="form-group">
+        <label for="movie-title">movie title:</label>
+        <input
+          class="form-input"
+          type="text"
+          id="movie-title"
+          name="movie-title"
+        />
+      </div>
+      <div class="form-group">
+        <button type="submit">Add</button>
+      </div>
+    </form>
+  </div>
 
-    <div class="movie-list">
-        {{#if movies.length}}
-        <h3>Watchlist:</h3>
+  <div class="movie-list">
+    {{#if movies.length}}
+      <h3>Watchlist:</h3>
 
-        {{#each movies as |movie|}}
+      {{#each movies as |movie|}}
         <div>
-            <div>
-                <h4><a href="/movie/{{movie.id}}">{{movie.title}}</a></h4>
-            </div>
-            <div>
-                <button data-id="{{movie.id}}">DELETE</button>
-            </div>
+          <div>
+            <h4><a href="/movie/{{movie.id}}">{{movie.title}}</a></h4>
+          </div>
+          <div>
+            <button data-id="{{movie.id}}">DELETE</button>
+          </div>
         </div>
-        {{/each}}
-        {{/if}}
-    </div>
+      {{/each}}
+    {{/if}}
+  </div>
 </div>
 
 <script src="./js/profile.js"></script>

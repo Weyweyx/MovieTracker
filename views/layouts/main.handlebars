@@ -1,40 +1,67 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Movie Watchlist</title>
-  <link rel="stylesheet" href="/css/style.css">
-  <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Tracker</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.2/css/bulma.min.css" />
+  <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+  <link href="https://vjs.zencdn.net/8.16.1/video-js.css" rel="stylesheet" />
 </head>
 
 <body>
-  <div>
-    <header>
-      <h1>
-        <a href="/">Movies</a>
-      </h1>
-      <nav>
-        {{#if logged_in}}
-        <a href="/profile">profile</a> |
-        <button id="logout">logout</button>
-        {{else}}
-        <a href="/login">login</a>
-        {{/if}}
+  <section class="section">
+    <div class="container">
+      <header class="custom-title">
+        <h1 class="title has-text-black is-2" id="underlined">The Ultimate Movie Tracker</h1>
+      </header>
+      <nav class="level">
+        <div class="level-left">
+          {{#if logged_in}}
+          <a href="/profile" class="button is-info" type="submit">Profile</a>
+          <button id="logout-form" class="button is-danger ml-2" type="submit">Logout</button>
+          {{else}}
+          <div class="field is-grouped">
+            <p class="control subtitle content"><strong class="has-text-black is-size-5" id="underlined">Already have an account? Sign in
+              here!</strong> 👉</p>
+            <a href="/login"
+              class="button is-link is-rounded ml-2" type="submit"><strong>Login</strong></a>
+          </div>
+          {{/if}}
+        </div>
       </nav>
-    </header>
-    <main>
-      {{{ body }}}
-    </main>
-    <footer>
-      
-    </footer>
-  </div>
+      </header>
+      <section class="section">
+        <div class="container has-text-centered">
+          <h1 class="custom-subtitle">Welcome to Ultimate Movie Tracker!</h1>
+          <p class="custom-main-body">A haven among all movie fanatics and those alike, this is your place to achieve your movie watching goals! Keeping track 
+            of the movies you're anticipating to watch, whether the films haven't been released yet or you don't have the time to watch them yet, can be 
+            tricky. We are here to help solve those problems with Ultimate Movie Tracker! After creating an account, you will have full access to our 
+            amazing services. You will be able to have a "To-Do" styled Watchlist where you'll be prompted to enter in any movies of your choosing, and 
+            be able to add any notes for it if you wish. After watching any film provided on your Watchlist, feel free to checkmark it, marking it as "watched", 
+            and become a critic by adding your own review in the notes section! These lists are special and only for you, as only the account holder may see 
+            and modify their own Watchlist in anyway. <br> We are so happy you're here and excited to help you with such a fun activity! So what are you waiting for?! Go ahead and create an account and get started!
+            Keep visitng back for future developer updates to add more to your experience! :D
+          </p>  
+        </div>
+      </section>
+     <main class="content">
+        {{{body}}}
+      </main>
+      {{!-- is this the watchlist or the main page for when a user first goes to the site?
+      this code adds a list of movies, need to figure out if the site thinks someone is signed in already --}}
+      <footer class="footer mt-5" id="foot-custom">
+        <div class="content" id="underlined">
+          <p><strong class="has-text-black">&copy; 2024 Movie Tracker. All rights reserved.</strong></p>
+        </div>
+      </footer>
+    </div>
+  </section>
 
   {{#if logged_in}}
-  <script src="/js/logout.js"></script>
+  <script src="/logout"></script>
   {{/if}}
 </body>
 
