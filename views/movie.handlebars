@@ -1,3 +1,23 @@
 <div>
     <h2>{{title}}</h2>
+       <div>
+        <video
+      id="my-video"
+      class="video-js vjs-big-play-centered vjs-theme-sea"
+      controls
+      preload="auto"
+      fluid="true"
+      data-setup="{}"
+      data-title="{{title}}"
+    >
+          <source
+        type="video/youtube"
+        src = "https://www.youtube.com/embed/FpKaB5dvQ4g?autoplay=1&mute=1"
+      />
+    </video>
+
+    <script src="/js/videoPlayer.js"></script>
+    <script src="https://vjs.zencdn.net/7.17.0/video.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js"></script>
+     </div>
 </div>
