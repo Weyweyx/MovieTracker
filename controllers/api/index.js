@@ -8,6 +8,6 @@ const trailerRoutes = require('./trailerController')
 router.use('/users', userRoutes);
 router.use('/movies', movieRoutes);
 router.use('/watchlist', watchlistRoutes)
-router.use("/trailer",trailerRoutes)
+router.use("/trailer", trailerRoutes)
 
 module.exports = router;
