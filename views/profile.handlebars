@@ -1,16 +1,16 @@
 <div>
   <div>
-    <h2>Welcome, {{username}}!</h2>
+    <h2 id="body-title">Welcome, {{username}}!</h2>
   </div>
 </div>
 
 <div>
   <div>
-    <h3>Add a movie to watch:</h3>
+    <h3 class="is-size-4" id="body-title">Add a movie to watch:</h3>
 
     <form class="form new-movie-form">
       <div class="form-group">
-        <label for="movie-title">movie title:</label>
+        <label class="subtitle has-text-black" for="movie-title">Movie Title:</label>
         <input
           class="form-input"
           type="text"
@@ -19,22 +19,28 @@
         />
       </div>
       <div class="form-group">
-        <button type="submit">Add</button>
+        <button class="button is-success is-rounded" type="submit">Add</button>
       </div>
     </form>
   </div>
 
   <div class="movie-list">
     {{#if movies.length}}
-      <h3>Watchlist:</h3>
+      <h3 id="body-title">Watchlist:</h3>
 
       {{#each movies as |movie|}}
         <div>
           <div>
-            <h4><a href="/movie/{{movie.id}}">{{movie.title}}</a></h4>
+            <h4 class="subtitle has-text-black is-size-4"><a
+                class="subtitle has-text-black is-size-4"
+                href="/movie/{{movie.id}}"
+              >{{movie.title}}</a></h4>
           </div>
           <div>
-            <button data-id="{{movie.id}}">DELETE</button>
+            <button
+              class="button is-success is-rounded"
+              data-id="{{movie.id}}"
+            >DELETE</button>
           </div>
         </div>
       {{/each}}

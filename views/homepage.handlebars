@@ -1,9 +1,34 @@
-{{#each movies as |movie| }}
-<div class="movie">
+<section class="section">
+  <div class="container has-text-centered">
+    <h1 class="custom-subtitle has-text-black">Welcome to Ultimate Movie
+      Tracker!</h1>
+    <p class="custom-main-body">A haven among all movie fanatics and those
+      alike, this is your place to achieve your movie watching goals! Keeping
+      track of the movies you're anticipating to watch, whether the films
+      haven't been released yet or you don't have the time to watch them yet,
+      can be tricky. We are here to help solve those problems with Ultimate
+      Movie Tracker! After creating an account, you will have full access to our
+      amazing services. You will be able to have a "To-Do" styled Watchlist
+      where you'll be prompted to enter in any movies of your choosing, and be
+      able to add any notes for it if you wish. After watching any film provided
+      on your Watchlist, feel free to checkmark it, marking it as "watched", and
+      become a critic by adding your own review in the notes section! These
+      lists are special and only for you, as only the account holder may see and
+      modify their own Watchlist in anyway.
+      <br />
+      We are so happy you're here and excited to help you with such a fun
+      activity! So what are you waiting for?! Go ahead and create an account and
+      get started! Keep visitng back for future developer updates to add more to
+      your experience! :D
+    </p>
+  </div>
+</section>
+{{#each movies as |movie|}}
+  <div class="movie">
     <div>
-        <h2>
-            <a href="/movie/{{movie.id}}">{{movie.title}}</a>
-        </h2>
+      <h2>
+        <a href="/movie/{{movie.id}}">{{movie.title}}</a>
+      </h2>
     </div>
-</div>
+  </div>
 {{/each}}

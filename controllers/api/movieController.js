@@ -1,30 +1,6 @@
 const router = require('express').Router();
-const { Movie, User, Watchlist } = require('../../models');
+const { Movie } = require('../../models');
 const withAuth = require('../../utils/auth');
-
-// router.get('/', async (req, res) => {
-//   try {
-//     const movieData = await Movie.findAll()
-//     const movies = movieData.map((movie) => movie.get({ plain: true }));
-//     res.json(movies)
-//   } catch (err) {
-//     res.status(500).json(err)
-//   }
-// })
-
-// router.get('/:id', async (req, res) => {
-//   try {
-//     const movieData = await Movie.findByPk(req.params.id);
-
-//     if (!movieData) {
-//       res.status(404).json({ message: 'No movie found with this id!' });
-//       return;
-//     }
-
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 router.post('/', async (req, res) => {
   try {
@@ -32,9 +8,7 @@ router.post('/', async (req, res) => {
       ...req.body,
       user_id: req.session.user_id
     });
-    // if move title exists, do not create a new movie
     res.status(200).json(newMovie);
-    console.log(newMovie)
   } catch (err) {
     res.status(400).json(err);
   }

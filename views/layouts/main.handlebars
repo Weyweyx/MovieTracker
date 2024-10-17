@@ -24,34 +24,18 @@
           <button id="logout-form" class="button is-danger ml-2" type="submit">Logout</button>
           {{else}}
           <div class="field is-grouped">
-            <p class="control subtitle content"><strong class="has-text-black is-size-5" id="underlined">Already have an account? Sign in
-              here!</strong> 👉</p>
-            <a href="/login"
-              class="button is-link is-rounded ml-2" type="submit"><strong>Login</strong></a>
+            <p class="control subtitle content"><strong class="has-text-black is-size-5" id="underlined">Already have an
+                account? Sign in
+                here!</strong> 👉</p>
+            <a href="/login" class="button is-link is-rounded ml-2" type="submit">Login</a>
           </div>
           {{/if}}
         </div>
       </nav>
       </header>
-      <section class="section">
-        <div class="container has-text-centered">
-          <h1 class="custom-subtitle">Welcome to Ultimate Movie Tracker!</h1>
-          <p class="custom-main-body">A haven among all movie fanatics and those alike, this is your place to achieve your movie watching goals! Keeping track 
-            of the movies you're anticipating to watch, whether the films haven't been released yet or you don't have the time to watch them yet, can be 
-            tricky. We are here to help solve those problems with Ultimate Movie Tracker! After creating an account, you will have full access to our 
-            amazing services. You will be able to have a "To-Do" styled Watchlist where you'll be prompted to enter in any movies of your choosing, and 
-            be able to add any notes for it if you wish. After watching any film provided on your Watchlist, feel free to checkmark it, marking it as "watched", 
-            and become a critic by adding your own review in the notes section! These lists are special and only for you, as only the account holder may see 
-            and modify their own Watchlist in anyway. <br> We are so happy you're here and excited to help you with such a fun activity! So what are you waiting for?! Go ahead and create an account and get started!
-            Keep visitng back for future developer updates to add more to your experience! :D
-          </p>  
-        </div>
-      </section>
-     <main class="content">
+      <main class="content">
         {{{body}}}
       </main>
-      {{!-- is this the watchlist or the main page for when a user first goes to the site?
-      this code adds a list of movies, need to figure out if the site thinks someone is signed in already --}}
       <footer class="footer mt-5" id="foot-custom">
         <div class="content" id="underlined">
           <p><strong class="has-text-black">&copy; 2024 Movie Tracker. All rights reserved.</strong></p>
@@ -61,7 +45,7 @@
   </section>
 
   {{#if logged_in}}
-  <script src="/logout"></script>
+  <script src="/js/logout.js"></script>
   {{/if}}
 </body>
 
