@@ -1,59 +1,51 @@
 const source = document.querySelector("source");
 const video = document.querySelector("video");
-// require('dotenv').config();
+const videoPlayer = document.querySelector("#videoplayer")
+const bodyEl = document.querySelector("body")
+const dataTitle = document.querySelector("h2")
 
-function fetchYouTubeVideos(query) {
-  const apiKey = "AIzaSyAZQxBxJRTVW5bNFyFSHAj-xF8GBWF3NQ4";
-  const baseUrl = "https://www.googleapis.com/youtube/v3/search?part=snippet";
-  const url =
-    baseUrl +
-    "&q=" +
-    encodeURIComponent(query) +
-    "&key=" +
-    apiKey +
-    "&type=video";
 
-  return fetch(url)
-    .then(function (response) {
-      if (!response.ok) {
-        return [];
-      }
-      return response.json();
-    })
-    .then(function (data) {
-      return data.items || [];
-    })
-    .catch(function (error) {
-      return [];
-    });
+async function fetchTrailer(){
+  const title = encodeURIComponent(movieTitle)
+  const response = await fetch(`/api/trailer/${title}`)
+  const trailer = await response.json()
+  return trailer
 }
 
-function trailerLink(videos) {
-  const trailer = `https://www.youtube.com/embed/${videos[0].id.videoId}?autoplay=1&mute=1`;
-  return trailer;
-}
-
-const movieTitle = video.getAttribute("data-title");
+const movieTitle = dataTitle.getAttribute("data-title");
 console.log(movieTitle);
 
-// const movie = "Warcraft";
 
 const query = `${movieTitle} trailer`;
 console.log(query);
 
-function setVideo(trailer) {
-  source.setAttribute("src", trailer);
+function removeSpinner(){
+  videoPlayer.removeChild(video)
 }
 
-fetchYouTubeVideos(query).then(function (videos) {
-  const trailer = trailerLink(videos);
+function setVideo(trailer) {
+  const newVideo = document.createElement("video")
+  const newSource = document.createElement("source")
+  newVideo.setAttribute("id","my-video")
+  newVideo.setAttribute("class","video-js vjs-big-play-centered vjs-theme-sea")
+  newVideo.setAttribute("controls","")
+  newVideo.setAttribute("preload","auto")
+  newVideo.setAttribute("fluid","true")
+  newVideo.setAttribute("data-setup","{}")
+  newSource.setAttribute("type","video/youtube")
+  newSource.setAttribute("src", trailer);
+  newVideo.append(newSource)
+  videoPlayer.append(newVideo)
+}
+
+fetchTrailer().then(function (trailer) {
   console.log(trailer);
   setVideo(trailer);
+  const videoScriptEl = document.createElement("script")
+  const youtubeScriptEl = document.createElement("script")
+  videoScriptEl.setAttribute("src","https://vjs.zencdn.net/7.17.0/video.min.js")
+  youtubeScriptEl.setAttribute("src","https://cdnjs.cloudflare.com/ajax/libs/videojs-youtube/2.6.1/Youtube.min.js")
+  bodyEl.appendChild(videoScriptEl)
+  bodyEl.appendChild(youtubeScriptEl)
 });
 
-// window.addEventListener("load", (event) => {
-//   fetchYouTubeVideos(query).then(function (videos) {
-//     setVideo(videos);
-// });
-//   console.log("page is fully loaded");
-// })
