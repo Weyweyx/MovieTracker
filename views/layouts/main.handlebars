@@ -24,20 +24,18 @@
           <button id="logout-form" class="button is-danger ml-2" type="submit">Logout</button>
           {{else}}
           <div class="field is-grouped">
-            <p class="control subtitle content"><strong class="has-text-black is-size-5" id="underlined">Already have an account? Sign in
-              here!</strong> 👉</p>
-            <a href="/login"
-              class="button is-link is-rounded ml-2" type="submit"><strong>Login</strong></a>
+            <p class="control subtitle content"><strong class="has-text-black is-size-5" id="underlined">Already have an
+                account? Sign in
+                here!</strong> 👉</p>
+            <a href="/login" class="button is-link is-rounded ml-2" type="submit">Login</a>
           </div>
           {{/if}}
         </div>
       </nav>
       </header>
-     <main class="content">
+      <main class="content">
         {{{body}}}
       </main>
-      {{!-- is this the watchlist or the main page for when a user first goes to the site?
-      this code adds a list of movies, need to figure out if the site thinks someone is signed in already --}}
       <footer class="footer mt-5" id="foot-custom">
         <div class="content" id="underlined">
           <p><strong class="has-text-black">&copy; 2024 Movie Tracker. All rights reserved.</strong></p>

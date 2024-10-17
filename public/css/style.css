@@ -1,16 +1,19 @@
-
+:root {
+  --centerText: center;
+  --fontFam: Georgia, 'Times New Roman', Times, serif;
+}
 
 body {
-  background-color: #689ebe;
+  background-color: #9062cc;
 }
 
 .custom-title {
-  background-color: #3d61c4;
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  background-color: #43b64c;
+  font-family: var(--fontFam);
   color: black;
   padding: 20px;
   border-radius: 5px;
-  text-align: center;
+  text-align: var(--centerText);
   margin-bottom: 20px;
 }
 
@@ -21,20 +24,20 @@ body {
 
 #foot-custom {
   text-decoration: underline;
-  text-align: center;
-  background-color: #3d61c4;
-  color: black;
+  text-align: var(--centerText);
+  background-color: #43b64c;
+  color: rgb(0, 0, 0);
   padding: 50px;
   margin-left: 25%;
   margin-right: 25%;
 }
 
 .custom-main-body {
-    background-color: #5d75c5;
+    background-color: #395fdb;
     color: black;
     font-size: 18px;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    text-align: center;
+    font-family: var(--fontFam);
+    text-align: var(--centerText);
     border-radius: 5px;
     padding: 20px;
     margin-left: 90px;
@@ -43,13 +46,20 @@ body {
 }
 
 .custom-subtitle {
-    background-color: #5d75c5;
+    background-color: #395fdb;
     color: black;
-    text-align: center;
+    text-align: var(--centerText);
     font-size: x-large;
-    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-family: var(--fontFam);
     text-decoration: underline;
     border-radius: 5px;
     margin-left: 150px;
     margin-right: 150px;
+}
+
+#body-title {
+  color: black;
+  font-family: var(--fontFam);
+  font-size: xx-large;
+  text-decoration: underline;
 }
