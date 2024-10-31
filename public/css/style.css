@@ -4,17 +4,21 @@
 }
 
 body {
-  background-color: #9062cc;
+  background: linear-gradient(135deg, #ffdbb2, #8f6033);
 }
 
-.custom-title {
-  background-color: #43b64c;
+.custom-picture-title {
+  background: url('https://thumbs.dreamstime.com/b/popcorn-wooden-bowl-rustic-table-close-up-snack-food-movie-night-concept-323335281.jpg') center fixed;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
   font-family: var(--fontFam);
   color: black;
   padding: 20px;
   border-radius: 5px;
   text-align: var(--centerText);
   margin-bottom: 20px;
+
 }
 
 #underlined {
@@ -25,15 +29,16 @@ body {
 #foot-custom {
   text-decoration: underline;
   text-align: var(--centerText);
-  background-color: #43b64c;
+  background-color: #e0bc8c;
   color: rgb(0, 0, 0);
   padding: 50px;
   margin-left: 25%;
   margin-right: 25%;
+  margin-top: 25%;
 }
 
 .custom-main-body {
-    background-color: #395fdb;
+    background-color: #e7d68a;
     color: black;
     font-size: 18px;
     font-family: var(--fontFam);
@@ -46,12 +51,11 @@ body {
 }
 
 .custom-subtitle {
-    background-color: #395fdb;
+    background-color: #e4d17b;
     color: black;
     text-align: var(--centerText);
     font-size: x-large;
     font-family: var(--fontFam);
-    text-decoration: underline;
     border-radius: 5px;
     margin-left: 150px;
     margin-right: 150px;
