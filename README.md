@@ -14,3 +14,7 @@ Another addition that has been discussed, is having friends between user account
 One last future development includes, offering users to sort their movies by categories! This way, the films are easier to keep track of for the user, and because they would be the one deciding the categories, this will add to that unique user experience even more!
 
 Some technologies used include: PostgreSQL, Express, Bulma CSS Framework, YouTube API
+
+URL for deployed application: https://movietracker-tgfz.onrender.com/
+
+See the "images" folder for some live application images!
